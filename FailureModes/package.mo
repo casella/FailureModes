@@ -1,7 +1,7 @@
 within ;
 package FailureModes "A collection of examples of failure modes for Modelica models"
   import SI = Modelica.SIunits;
-  annotation(version = "1.1.0",
+  annotation(version = "1.2.0",
              uses(Modelica(version = "3.2.2")),
     Icon(graphics = {Polygon(fillPattern = FillPattern.Solid, points = {{-100, -100}, {-100, 100}, {-68, 42}, {-16, 50}, {-36, -4}, {24, 0}, {-2, -46}, {46, -46}, {28, -82}, {100, -100}, {-100, -100}}), Polygon(origin = {10, 9}, fillPattern = FillPattern.Solid, points = {{-82, 91}, {90, 91}, {90, -85}, {48, -73}, {66, -41}, {22, -39}, {44, 9}, {-18, 5}, {2, 61}, {-60, 53}, {-60, 53}, {-82, 91}})}, coordinateSystem(initialScale = 0.1)),
     Documentation(info = "<html><head></head><body><p>This library contains a collection of simple models that show many typical failure modes of Modelica models.</p>
