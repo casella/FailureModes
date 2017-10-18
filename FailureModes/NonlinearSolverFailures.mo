@@ -76,4 +76,16 @@ package NonlinearSolverFailures "Models showing different numerical failure mode
 </body></html>"),
       experiment(StopTime = 500));
   end WrongInitialSolutionSelected;
+
+  model NoValidInitialSolution "Initialization converges to an invalid solution"
+    extends WrongInitialSolutionSelected;
+  equation
+    assert(w_pump > 0, "Pump flow rate must be positive");
+  annotation(
+      Documentation(info = "<html>
+<p>This model describes a simple hydraulic system with a pump, followed by a valve, which fills a reservoir.</p>
+<p>The operating point of the pumpt is determined by a nonlinear system with five unknowns: w_pump, dp_pump, dp_valve, sqrt_dp, and p1. They can be reduced to one by selecting dp_pump as the tearing variable.</p><p>At time t=0, this system has two solutions, one with positive w_pump, and the other one with negative w_pump. If the start value of the tearing variable dp_pump is chosen incorrectly, the nonlinear solver will converge to the negative solution. In this case, an assertion that pump flow must be positive is present, so the solution is discarded and an error is reporte.</p>
+<p>In order to help the end user fix the problem, it is not enough that the assertion is pointed out, but it should be possible to inspect the discarded value of w_pump and understand where it comes from, as in the case of <a href=\"modelica://FailureModes.NonlinearSolverFailures.WrongInitialSolutionSelected\">WrongInitialSolutionSelected</a>.</p>
+</html>"));
+  end NoValidInitialSolution;
 end NonlinearSolverFailures;
