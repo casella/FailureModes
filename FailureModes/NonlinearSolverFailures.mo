@@ -68,11 +68,11 @@ package NonlinearSolverFailures "Models showing different numerical failure mode
   end SimulationFailure;
 
   model WrongInitialSolutionSelected "Initialization converges to the wrong solution"
-    extends InitialFailure(y(start = 20), dp_pump(start = -1000));
+    extends InitialFailure(y(start = 20), w_pump(start = -0.5));
     annotation(
       Documentation(info = "<html><head></head><body><p>This model describes a simple hydraulic system with a pump, followed by a valve, which fills a reservoir.</p>
-<p>The operating point of the pumpt is determined by a nonlinear system with five unknowns: w_pump, dp_pump, dp_valve, sqrt_dp, and p1. They can be reduced to one by selecting dp_pump as the tearing variable.</p><p>At time t=0, this system has two solutions, one with positive w_pump, and the other one with negative w_pump. If the start value of the tearing variable dp_pump is chosen incorrectly, the solver will converge to the negative solution, then lock onto it for the rest of the simulation.</p>
-<p>When the user sees the negative w_pump, he/she should be able to analyze how this value was found at time t = 0. The debugger should show that w_pump is solved by that nonlinear system, and show the values of the tearing variables and of the torn variables at each iteration. It will then become apparent that the start value of the teaing variable dp_pump leads to a negative value of the torn variable w_pump, leading to the solution of the problem, i.e., changing the start value of dp_pump to a value that allows to converge on the desired solution.</p>
+<p>The operating point of the pumpt is determined by a nonlinear system with five unknowns: w_pump, dp_pump, dp_valve, sqrt_dp, and p1. They can be reduced to one by selecting w_pump as the tearing variable.</p><p>At time t=0, this system has two solutions, one with positive w_pump, and the other one with negative w_pump. If the start value of the tearing variable w_pump is chosen incorrectly, the solver will converge to the negative solution, then lock onto it for the rest of the simulation.</p>
+<p>When the user sees the negative w_pump, he/she should be able to analyze how this value was found at time t = 0. The debugger should show that w_pump is solved by that nonlinear system, and show the values of the tearing variables and of the torn variables at each iteration. It will then become apparent that the start value of the teaing variable w_pump, which is negative in this test case, causes the solver to converge on the wrong solution, thus suggesting the solution to the problem, i.e., changing the start value of w_pump to a positive value that allows the solver to converge on the desired solution.</p>
 </body></html>"),
       experiment(StopTime = 500));
   end WrongInitialSolutionSelected;
