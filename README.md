@@ -14,7 +14,7 @@ and get them to work.
 
 The goal of this library is thus to collect simple paradigmatic test cases that demonstrate typical numerical runtime
 failure modes of Modelica models, to be used by Modelica tool developers to assess how far they can get at
-helping the end user identify and fix them.
+helping the end user to identify and fix them.
 
 The library can also have educational value for Modelica users, to learn in which ways Modelica models can fail
 for numerical reasons and develop appropriate strategies to deal with each of these sources of trouble, using their
@@ -23,6 +23,7 @@ where the relationship between the run-time error and the root cause in the mode
 
 The first version of the library was written in 2012 to provide test cases for the new debugging features of the
 OpenModelica tool, see Adrian Pop, Martin Sjölund, Adeel Asghar, Peter Fritzson and Francesco Casella, Static and
-Dynamic Debugging of Modelica Models, Proc. 9th International Modelica Conference, Munich, Germany, Sep. 3-5, 2012, pp. 443-454.
+Dynamic Debugging of Modelica Models, Proc. 9th International Modelica Conference, Munich, Germany, Sep. 3-5, 2012,
+pp. 443-454 [(PDF fulltext)](http://www.ep.liu.se/ecp/076/046/ecp12076046.pdf).
 
 Contributions by tool vendors and users are welcome; you are encouraged to use pull requests on GitHub for this purpose.
