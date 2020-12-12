@@ -3,4 +3,5 @@ DifferentialSolverFailures
 Chattering
 SingularModels
 MultiModeDAE
+AlgebraicLoop
 Utilities
